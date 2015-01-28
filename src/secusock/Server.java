@@ -7,31 +7,25 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Server
+public class Server implements Runnable
 {
 	private PrintWriter out = null;
 	private BufferedReader in = null;
 	
-	public boolean start(int port)
+	public void run()
 	{
-		if (port < 1 || port > 65536)
-			return false;
-
 		try
 		{
-			ServerSocket serverSocket = new ServerSocket(port);
+			ServerSocket serverSocket = new ServerSocket(42069);
 			Socket remoteSocket = serverSocket.accept();
 			
 			this.out = new PrintWriter(remoteSocket.getOutputStream(),
 					true);
 			this.in = new BufferedReader(new InputStreamReader(
 					remoteSocket.getInputStream()));
-
-			return true;
 		}
 		catch (IOException e)
 		{
-			return false;
 		}
 	}
 }
