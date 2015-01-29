@@ -47,6 +47,8 @@ public class SharingKey
 	{
 		byte[] publicKey = keyPair.getPublic().getEncoded();
 		
+		System.out.println("Raw: "+publicKey.toString());
+		
 		Encoder encoder = Base64.getEncoder();
 		return encoder.encodeToString(publicKey);
 	}
@@ -59,9 +61,13 @@ public class SharingKey
 	 * @throws Exception Unknown algorithm, NullPointer
 	 */
 	public static PublicKey decodePublicKey(String givenKey) throws Exception
-	{	
+	{
+		System.out.println("Given key: "+givenKey);
+		
 		Decoder decoder = Base64.getDecoder();
 		byte[] publicKey = decoder.decode(givenKey);
+		
+		System.out.println("Decrypted: "+publicKey.toString());
 		
 		X509EncodedKeySpec spec = new X509EncodedKeySpec(publicKey);
 		KeyFactory keyFactory = KeyFactory.getInstance("RSA");
