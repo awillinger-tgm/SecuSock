@@ -5,3 +5,7 @@ bin/
 .settings/
 .classpath
 .project
+
+# Astah
+*.lock
+*.bak
