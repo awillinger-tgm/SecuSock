@@ -26,7 +26,7 @@ public class SharingKey
 	 * Generates a new RSA KeyPair with a key size of 1024 bit.
 	 * 
 	 * @return A KeyPair instances contaning the generated public/private keys.
-	 * @throws NoSuchAlgorithmException
+	 * @throws NoSuchAlgorithmException Algorithm is unknown
 	 */
 	public static KeyPair generateKeyPair() throws NoSuchAlgorithmException
 	{
@@ -41,7 +41,7 @@ public class SharingKey
 	 * 
 	 * @param keyPair The KeyPair of which the public key should be encoded.
 	 * @return A Base64 String of the public key
-	 * @throws Exception
+	 * @throws Exception KeyPair is invalid/null
 	 */
 	public static String encodePublicKey(KeyPair keyPair) throws Exception
 	{
@@ -56,7 +56,7 @@ public class SharingKey
 	 * 
 	 * @param givenKey The Base64 representation of the PublicKey to decode.
 	 * @return A PublicKey instance containing the supplied public key
-	 * @throws Exception
+	 * @throws Exception Unknown algorithm, NullPointer
 	 */
 	public static PublicKey decodePublicKey(String givenKey) throws Exception
 	{	
@@ -75,7 +75,7 @@ public class SharingKey
 	 * @param publicKey The public key which should be used for encryption
 	 * @param message The byte array to be used (in this case, a RSA key)
 	 * @return The ciphered message in a Base64 representation.
-	 * @throws Exception
+	 * @throws Exception Unknown algorithm, NullPointer, invalid key size
 	 */
 	public static String encrypt(PublicKey publicKey, byte[] message) throws Exception
 	{
@@ -95,7 +95,7 @@ public class SharingKey
 	 * @param privateKey The privaate key which should be use for decryption
 	 * @param cipherMessage The encrypted message which should be decrypted.
 	 * @return The decrypted message, as a byte array
-	 * @throws Exception
+	 * @throws Exception Unknown algorithm, NullPointer, invalid key size
 	 */
 	public static byte[] decrypt(PrivateKey privateKey, String cipherMessage) throws Exception
 	{

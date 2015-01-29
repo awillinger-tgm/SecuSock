@@ -146,7 +146,7 @@ public class Client
 	 * 
 	 * @param message
 	 *            The message which was received from the server, as a String.
-	 * @throws Exception
+	 * @throws Exception An Exception thrown by one of the cipher classes.
 	 */
 	private void handleServerMessage(String message) throws Exception
 	{

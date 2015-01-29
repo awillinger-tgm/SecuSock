@@ -51,8 +51,6 @@ public class Server
 	/**
 	 * Opens a server socket and waits for connections and handles messages once
 	 * they arrive.
-	 * 
-	 * @throws Exception
 	 */
 	public void run()
 	{

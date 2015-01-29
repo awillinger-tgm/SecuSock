@@ -22,7 +22,7 @@ public class SessionKey
 	 * Generates a new AES key with a key size of 256 bits.
 	 * 
 	 * @return A SecretKey instance containing the generated AES key
-	 * @throws Exception
+	 * @throws Exception Specified algorithm is unknown
 	 */
 	public static SecretKey generateKey() throws Exception
 	{
@@ -37,7 +37,7 @@ public class SessionKey
 	 * 
 	 * @param givenKey The key, in a byte sequence form
 	 * @return A SecretKey instance containing the supplied key
-	 * @throws Exception
+	 * @throws Exception Invalid key size/Unknown algorithm
 	 */
 	public static SecretKey getKey(byte[] givenKey) throws Exception
 	{		
@@ -53,7 +53,7 @@ public class SessionKey
 	 * @param secretKey A SecretKey instance containing the AES key to be used for the operation
 	 * @param message The message to encrypt, as a String.
 	 * @return The encrypted message, as a Base64 String.
-	 * @throws Exception
+	 * @throws Exception Unknown algorithm, invalid key size, unable to convert to Base64 string
 	 */
 	public static String encrypt(SecretKey secretKey, String message) throws Exception
 	{
@@ -75,7 +75,7 @@ public class SessionKey
 	 * @param cipherText The encrypted message, as a Base64 String
 	 * @return The decrypted text
 	 * 
-	 * @throws Exception
+	 * @throws Exception Unkown algorithm, invalid key size, failure while decoding Base64 String
 	 */
 	public static String decrypt(SecretKey secretKey, String cipherText) throws Exception
 	{
