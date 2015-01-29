@@ -4,9 +4,13 @@
 import socket, sys
 from struct import *
 
+HOST = '127.0.0.1'
+
 #create an INET, STREAMing socket
 try:
-    s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_TCP)
+    s = socket.socket(socket.AF_INET, socket.SOCK_RAW)
+    s.bind((HOST, 0))
+    s.ioctl(socket.SIO_RCVALL, socket.RCVALL_ON)
    
 except socket.error as msg:
     print('Socket could not be created. Error Code : ' + str(msg[0]) + ' Message ' + msg[1])
