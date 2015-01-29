@@ -47,7 +47,7 @@ public class SharingKey
 	{
 		byte[] publicKey = keyPair.getPublic().getEncoded();
 		
-		System.out.println("Raw: "+publicKey.toString());
+		System.out.println("Raw: "+new String(publicKey));
 		
 		Encoder encoder = Base64.getEncoder();
 		return encoder.encodeToString(publicKey);
@@ -67,7 +67,7 @@ public class SharingKey
 		Decoder decoder = Base64.getDecoder();
 		byte[] publicKey = decoder.decode(givenKey);
 		
-		System.out.println("Decrypted: "+publicKey.toString());
+		System.out.println("Decrypted: "+new String(publicKey));
 		
 		X509EncodedKeySpec spec = new X509EncodedKeySpec(publicKey);
 		KeyFactory keyFactory = KeyFactory.getInstance("RSA");
