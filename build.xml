@@ -57,7 +57,18 @@
         </copy>
         
         <copy todir="${build.dir}/docs">
-            <fileset dir="docs" />
+            <fileset dir="docs">
+                <include name="**/*.pdf" />
+                <include name="**/*.asta" />
+            </fileset>
+        </copy>
+        
+        <copy todir="${build.dir}/REQUIRED">
+            <fileset dir="REQUIRED" />
+        </copy>
+        
+        <copy todir="${build.dir}/sniffer">
+            <fileset dir="sniffer" />
         </copy>
 
         <copy file="build.xml" todir="${build.dir}" />
